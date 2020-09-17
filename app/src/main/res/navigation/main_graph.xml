@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/main_graph">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/mainFragment">
 
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.oscarescamilla.com.ui.MainFragment"
+        android:label="Drinks"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_drinkDetailFragment"
+            app:destination="@id/drinkDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/drinkDetailFragment"
+        android:name="com.oscarescamilla.com.ui.DrinkDetailFragment"
+        android:label="Detail"
+        tools:layout="@layout/fragment_drink_detail" />
 </navigation>
