@@ -11,7 +11,13 @@ import com.oscarescamilla.com.base.BaseViewHolder
 import com.oscarescamilla.com.data.model.Drink
 import kotlinx.android.synthetic.main.drink_row.view.*
 
-class MainAdapter(private val context: Context, private val items: List<Drink>): RecyclerView.Adapter<BaseViewHolder<*>>() {
+class MainAdapter(private val context: Context, private val items: List<Drink>, private val itemClickListener: OnDrickClickListener)
+    : RecyclerView.Adapter<BaseViewHolder<*>>(){
+
+    interface OnDrickClickListener{
+
+        fun onDrinkClick(drink: Drink)
+    }
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<*> {
@@ -33,9 +39,11 @@ class MainAdapter(private val context: Context, private val items: List<Drink>):
 
         override fun bind(item: Drink, position: Int) {
             // load image in img_drink with synthetic anotation
-            Glide.with(context).load(item.image).into(itemView.img_drink)
+            Glide.with(context).load(item.image).centerCrop().into(itemView.img_drink)
             itemView.tv_drink_name.text = item.nombre
             itemView.tv_drink_description.text = item.descripcion
+
+            itemView.setOnClickListener { itemClickListener.onDrinkClick(item) }
 
         }
 
