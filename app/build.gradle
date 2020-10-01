@@ -22,11 +22,22 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    // necesary for live data and viwmodel bugs
+    compileOptions{
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions{
+        jvmTarget = "1.8"
+    }
 }
 
 dependencies {
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
     def nav_version = "2.3.0"
+    def lifecycle_version = "2.2.0"
 
 
     implementation fileTree(dir: "libs", include: ["*.jar"])
@@ -38,9 +49,22 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-
     // navigation components
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    // necesary librarys for use mvvm
+    // lifecycle
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    // ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    // LiveData
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+
+
+    // glide to load images
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
 }

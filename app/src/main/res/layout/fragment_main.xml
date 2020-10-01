@@ -6,22 +6,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.MainFragment">
+    
+    <RelativeLayout
+        android:id="@+id/progresBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+        <ProgressBar
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </ProgressBar>
+    </RelativeLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_tragos"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </androidx.recyclerview.widget.RecyclerView>
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="FRAGMENT DRINK LIST"
-        android:textSize="25dp"/>
+<!--    <TextView-->
+<!--        android:gravity="center"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="FRAGMENT DRINK LIST"-->
+<!--        android:textSize="25dp"/>-->
 
-    <Button
-        android:id="@+id/btn_detalle"
-        android:text="detalles"
-        android:layout_marginTop="30dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+<!--    <Button-->
+<!--        android:id="@+id/btn_detalle"-->
+<!--        android:text="detalles"-->
+<!--        android:layout_marginTop="30dp"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content">-->
 
-    </Button>
+<!--    </Button>-->
 
 </LinearLayout>
