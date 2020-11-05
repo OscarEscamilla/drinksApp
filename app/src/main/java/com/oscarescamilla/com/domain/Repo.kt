@@ -4,5 +4,7 @@ import com.oscarescamilla.com.data.model.Drink
 import com.oscarescamilla.com.vo.Resource
 
 interface Repo {
-    fun getDrinksList(): Resource<List<Drink>>
+
+    suspend fun getDrinksList(nameDrink: String): Resource<List<Drink>>
+
 }

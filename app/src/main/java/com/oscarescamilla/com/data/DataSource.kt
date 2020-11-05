@@ -1,7 +1,9 @@
 package com.oscarescamilla.com.data
 
 import com.oscarescamilla.com.data.model.Drink
+import com.oscarescamilla.com.data.model.DrinkList
 import com.oscarescamilla.com.vo.Resource
+import com.oscarescamilla.com.vo.RetrofitClient
 
 class DataSource {
 
@@ -12,7 +14,13 @@ class DataSource {
         Drink("https://imagenes.milenio.com/UCsDhLHchmGv0yQWIcWDkHkhDas=/958x596/https://www.milenio.com/uploads/media/2019/12/01/ponche-frutas-navideno-bebida-tradicional_0_3_958_596.jpg", "Ponche", "Incluye Chabacano y caña")
     )
 
+    // recibe como parametro la data declaeada en Resource
     fun getDrinkList(): Resource<List<Drink>>{
         return Resource.Success(generateDrinksList)
+    }
+
+
+    suspend fun getDrinksByName(nameDrink: String): Resource.Success<List<Drink>>{
+        return Resource.Success(RetrofitClient.webService.getTragosByName(nameDrink).drinkList)
     }
 }

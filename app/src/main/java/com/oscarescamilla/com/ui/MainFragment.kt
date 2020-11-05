@@ -77,6 +77,7 @@ class MainFragment() : Fragment(), MainAdapter.OnDrickClickListener {
     override fun onDrinkClick(drink: Drink) {
         var bundle = Bundle()
         bundle.putParcelable("drink",drink)
+        // lanzamos el detalle y enviamos por el bundle el objeto drink
         findNavController().navigate(R.id.drinkDetailFragment, bundle)
     }
 
