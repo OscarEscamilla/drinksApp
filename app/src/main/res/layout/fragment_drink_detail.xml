@@ -1,18 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:gravity="center"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.DrinkDetailFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:gravity="center"
+
+    <ImageView
+        android:id="@+id/imgDrink"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="FRAGMENT DRINK DETAIL"
-        android:textSize="25dp"/>
+        android:layout_height="300dp"
+        android:src="@drawable/ic_launcher_background">
+
+    </ImageView>
+
+
+
+    <TextView
+        android:id="@+id/drinkName"
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Drink Name"
+        android:textSize="25sp"/>
+
+    <Button
+        android:id="@+id/btnAddFavorites"
+        android:text="add to favorites"
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        android:textColor="@android:color/white"
+        android:background="@color/colorPrimary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+    </Button>
+
+    <TextView
+        android:id="@+id/drinkOverview"
+        android:layout_margin="5dp"
+        android:textAlignment="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales diam sed dolor pulvinar, eu condimentum augue luctus. Aenean congue egestas mauris, vel placerat tortor elementum id. Maecenas in sapien sit amet justo dignissim pellentesque eget eget dolor. Curabitur et urna ac dolor consectetur accumsan pellentesque ut odio. Integer purus nulla, sodales a felis vitae, lobortis scelerisque sem. Maecenas quis consectetur magna, a vehicula lectus."
+        android:textSize="15sp"/>
 
 </LinearLayout>

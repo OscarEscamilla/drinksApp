@@ -23,4 +23,5 @@ class DataSource {
     suspend fun getDrinksByName(nameDrink: String): Resource.Success<List<Drink>>{
         return Resource.Success(RetrofitClient.webService.getTragosByName(nameDrink).drinkList)
     }
+
 }

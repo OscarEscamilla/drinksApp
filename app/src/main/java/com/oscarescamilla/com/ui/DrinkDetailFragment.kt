@@ -6,8 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.bumptech.glide.Glide
 import com.oscarescamilla.com.R
 import com.oscarescamilla.com.data.model.Drink
+import com.oscarescamilla.com.databinding.FragmentDrinkDetailBinding
+import kotlinx.android.synthetic.main.drink_row.view.*
 
 
 class DrinkDetailFragment : Fragment() {
@@ -15,11 +18,15 @@ class DrinkDetailFragment : Fragment() {
 
     private lateinit var drink: Drink
 
+    private var _binding: FragmentDrinkDetailBinding? = null
+    // This property is only valid between onCreateView and
+    // onDestroyView.
+    private val binding get() = _binding!!
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requireArguments().let {data ->
                 drink = data.getParcelable<Drink>("drink")!!
-            Log.i("drink", "$drink ")
         }
     }
 
@@ -27,8 +34,27 @@ class DrinkDetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_drink_detail, container, false)
+        _binding = FragmentDrinkDetailBinding.inflate(inflater, container, false)
+        val view = binding.root
+        return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+       initView()
+    }
+
+    fun initView(){
+        binding.drinkName.text = drink.nombre
+        binding.drinkOverview.text = drink.descripcion
+        Glide.with(requireActivity()).load(drink.image).centerCrop().into(binding.imgDrink)
+
+    }
+
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 
 
